@@ -1,4 +1,4 @@
-package xyz.hanks;
+package xyz.hanks.create;
 
 import rx.Observable;
 import rx.functions.Action1;
