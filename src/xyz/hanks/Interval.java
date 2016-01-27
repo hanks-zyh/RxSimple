@@ -17,6 +17,11 @@ public class Interval {
             subscribePrint(Observable.empty(), "Empty Observable");
             subscribePrint(Observable.never(), "Never Observable");
             subscribePrint(Observable.range(1, 3), "Range Observable");
+            try {
+                Thread.sleep(3*1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
         }
 
