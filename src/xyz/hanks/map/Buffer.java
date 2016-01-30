@@ -13,7 +13,7 @@ import java.util.List;
 public class Buffer {
     public static void main(String[] args) {
         Observable.just(1,3,5,7,9,"a","b","c")
-                .buffer(3,1)
+                .buffer(3,2)
         .subscribe(serializables -> System.out.println("serializables = " + serializables));
 
 
