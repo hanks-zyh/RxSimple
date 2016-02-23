@@ -19,5 +19,13 @@ public class Zip {
             }
         }).subscribe(s -> System.out.println("s = " + s));
 
+
+        Observable.zip(observable1, observable2, new Func2<Integer, String, String>() {
+            @Override
+            public String call(Integer integer, String s) {
+                return integer+"--->"+s;
+            }
+        }).subscribe(v-> System.out.println("v = " + v));
+
     }
 }
