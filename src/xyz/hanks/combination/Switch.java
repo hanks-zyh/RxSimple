@@ -75,3 +75,10 @@ public class Switch {
         }
     }
 }
+
+//        # 取消之前的请求:
+//        使用 switchMap来替代  flatMap， switchMap停止之前发出的请求， 假如在150ms的时候搜索”ab“，在300ms的时候搜索了”abcd“，但是搜索”ab”的请求需要花费超过150ms，那么搜索“abcd”的请求开始的时候将会取消上一个请求，用户只会获取到最后的一次搜索的结果。
+//        RxTextView.textChanges(searchEditText)
+//        .debounce(150, MILLISECONDS)
+//        .switchMap(Api::searchItems)
+//        .subscribe(this::updateList, t->showError());
