@@ -3,6 +3,7 @@ package xyz.hanks.combination;
 import rx.Observable;
 import rx.functions.Func1;
 import rx.functions.Func2;
+import rx.schedulers.Schedulers;
 
 import java.util.Random;
 
@@ -12,6 +13,7 @@ import java.util.Random;
 public class combineLatest {
     public static void main(String[] args) {
         Observable<Integer> observable1 = Observable.just(1, 2, 3, 4, 5)
+                .subscribeOn(Schedulers.newThread())
                 .map(new Func1<Integer, Integer>() {
                     @Override
                     public Integer call(Integer integer) {
@@ -26,6 +28,7 @@ public class combineLatest {
                     }
                 });
         Observable<String> observable2 = Observable.just("A", "b", "c", "d")
+                .subscribeOn(Schedulers.newThread())
                 .map(new Func1<String, String>() {
                     @Override
                     public String call(String integer) {
@@ -40,6 +43,8 @@ public class combineLatest {
                     }
                 });
 
+//        observable1.subscribe(o1-> System.out.println("o1 = " + o1));
+//        observable2.subscribe(o2-> System.out.println("o2 = " + o2));
 
         Observable.combineLatest(observable1, observable2, new Func2<Integer, String, String>() {
             @Override
@@ -48,13 +53,19 @@ public class combineLatest {
             }
         }).subscribe(s -> System.out.println("s = " + s));
 
-        Observable.combineLatest(observable2, observable1, new Func2<String, Integer, String>() {
-            @Override
-            public String call(String s,Integer integer)  {
-                return integer + "*_*" + s;
-            }
-        }).subscribe(s -> System.out.println("s2 = " + s));
+//        Observable.combineLatest(observable2, observable1, new Func2<String, Integer, String>() {
+//            @Override
+//            public String call(String s,Integer integer)  {
+//                return integer + "*_*" + s;
+//            }
+//        }).subscribe(s -> System.out.println("s2 = " + s));
 
+
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
 
