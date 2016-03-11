@@ -3,6 +3,9 @@ package xyz.hanks.create;
 import rx.Observable;
 import rx.Subscriber;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -38,5 +41,13 @@ public class Main {
                 System.out.println(integer.toString());
             }
         });
+        Set<String> set = new HashSet<>();
+        set.add("string1");
+        set.add("string2");
+        set.add("string1");
+        for (String s : set) {
+            System.out.println("set i = " + s);
+        }
+        System.out.println(set.contains("string1"));
     }
 }
