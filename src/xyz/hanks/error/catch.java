@@ -3,6 +3,7 @@ package xyz.hanks.error;
 
 import rx.Observable;
 import rx.exceptions.Exceptions;
+import rx.functions.Func1;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,5 +25,20 @@ public class Catch {
                 })
                 .subscribe(filename -> System.out.println("filename = " + filename),
                         throwable -> System.out.println("throwable = " + throwable));
+
+
+
+
+        int i = 0;
+
+        Observable.just(null)
+                .filter(new Func1<Object, Boolean>() {
+                    @Override
+                    public Boolean call(Object o) {
+                        i = 1;
+                        return o == null;
+                    }
+                })
+                .subscribe(s-> System.out.println("s = " + s));
     }
 }
