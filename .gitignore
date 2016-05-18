@@ -1,7 +1,7 @@
 /.idea
 /out
 *.iml
-
+.settings
 .classpath
 .project
 # Built application files
