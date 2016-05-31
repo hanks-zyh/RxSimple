@@ -16,5 +16,10 @@ public class Filter {
                     }
                 })
                 .subscribe(s-> System.out.println("s = " + s));
+        
+        Observable.just(1, 2, 3, 4, 5)
+        .filter(s->s>10)
+        .subscribe(i->System.out.println("i:"+i));
+        
     }
 }
