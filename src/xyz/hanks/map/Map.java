@@ -27,7 +27,6 @@ public class Map {
 				try {
 					return getStr(arg0);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 					return null;
 				}
